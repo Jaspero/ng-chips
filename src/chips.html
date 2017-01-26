@@ -1,0 +1,9 @@
+<span class="chip" *ngFor="let item of selected; let i = index" (click)="remove(i)">
+    {{item}} 
+    <svg height="16" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg" class="clearIcon" >
+        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+        <path d="M0 0h24v24H0z" fill="none"/>
+    </svg> 
+</span>
+<input class="chip-input" [type]="type" name="chips" [(ngModel)]="chip" (keyup)="addOnEnter($event)" #inp (focus)="isFocused = true" (focusout)="isFocused = false"> 
+<!--<button *ngIf="showAdd" (click)="add()">Add</button>-->
