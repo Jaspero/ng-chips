@@ -1,4 +1,4 @@
-import {Component, Input, HostBinding, ElementRef, ViewChild, HostListener} from '@angular/core';
+import {Component, Input, HostBinding, ElementRef, ViewChild, HostListener, EventEmitter, Output} from '@angular/core';
 import {ControlValueAccessor} from '@angular/forms';
 
 @Component({
@@ -8,6 +8,7 @@ import {ControlValueAccessor} from '@angular/forms';
 })
 export class ChipsComponent implements ControlValueAccessor {
     @Input() selected: any = [];
+    @Output() selectedChange: EventEmitter<any> = new EventEmitter();
     @Input() type: string = 'text';
     @Input() showAdd: boolean = true;
     @Input() duplicates: boolean = false;
@@ -20,7 +21,7 @@ export class ChipsComponent implements ControlValueAccessor {
 
     @HostListener('click') addFocus() {
         this.inpEl.nativeElement.focus();
-    }    
+    }
 
     addOnEnter(event) {
         if (event.keyCode !== 13) return;
@@ -32,11 +33,13 @@ export class ChipsComponent implements ControlValueAccessor {
         this.selected.push(this.chip);
         this.chip = null;
         this.propagateChange(this.selected);
+        this.selectedChange.emit(this.selected);
     }
 
     remove(index: number) {
         this.selected.splice(index, 1);
         this.propagateChange(this.selected);
+        this.selectedChange.emit(this.selected);
     }
 
     /*
@@ -53,5 +56,4 @@ export class ChipsComponent implements ControlValueAccessor {
     }
 
     registerOnTouched() {}
-
 }
