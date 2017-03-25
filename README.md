@@ -3,6 +3,12 @@
 # NG2 Select
 A chip library for Angular 2
 
+```
+npm install --save @jaspero/ng2-alerts
+```
+
+A demo can be found [here](http://open-source.jaspero.co/ng/ng-chips)
+
 ## Setup
 Import `JasperoChipsModule` in your `@NgModule`:
 
