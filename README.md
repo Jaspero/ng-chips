@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/Jaspero/ng2-chips.svg?branch=master)](https://travis-ci.org/jaspero/ng2-chips)
 [![NPM Version](https://img.shields.io/npm/v/@jaspero/ng2-chips.svg)](https://www.npmjs.com/package/@jaspero/ng2-chips)
-# NG2 Select
+# NG2 Chips
 A chip library for Angular 2
 
 ```
