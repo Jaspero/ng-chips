@@ -9,9 +9,9 @@ import {ControlValueAccessor} from '@angular/forms';
 export class ChipsComponent implements ControlValueAccessor {
     @Input() selected: any = [];
     @Output() selectedChange: EventEmitter<any> = new EventEmitter();
-    @Input() type: string = 'text';
-    @Input() showAdd: boolean = true;
-    @Input() duplicates: boolean = false;
+    @Input() type = 'text';
+    @Input() showAdd = true;
+    @Input() duplicates = false;
 
     @ViewChild('inp') inpEl: ElementRef;
 
@@ -23,7 +23,7 @@ export class ChipsComponent implements ControlValueAccessor {
         this.inpEl.nativeElement.focus();
     }
 
-    addOnEnter(event) {
+    addOnEnter(event: any) {
         if (event.keyCode !== 13) return;
         this.add();
     }
@@ -51,7 +51,7 @@ export class ChipsComponent implements ControlValueAccessor {
 
     propagateChange = (_: any) => {};
 
-    registerOnChange(fn) {
+    registerOnChange(fn: any) {
         this.propagateChange = fn;
     }
 
