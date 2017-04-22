@@ -1,6 +1,6 @@
 {
   "name": "@jaspero/ng2-chips",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A chip library for Angular 2",
   "scripts": {
     "build": "ngc -p tsconfig.json",
@@ -26,9 +26,7 @@
   "bugs": {
     "url": "https://github.com/Jaspero/ng2-chips/issues"
   },
-  "main": "bundles/ng2-chips.umd.js",
-  "module": "index.js",
-  "typings": "index.d.ts",
+  "main": "./dist/index.js",
   "homepage": "https://github.com/Jaspero/ng2-chips",
   "peerDependencies": {
     "@angular/core": "^4.0.1",
