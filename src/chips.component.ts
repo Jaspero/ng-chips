@@ -3,8 +3,80 @@ import {ControlValueAccessor} from '@angular/forms';
 
 @Component({
     selector: 'jaspero-chips',
-    templateUrl: 'chips.html',
-    styleUrls: ['./chips.css']
+    template: `
+        <span class="chip" *ngFor="let item of selected; let i = index" (click)="remove(i)">
+            {{item}} 
+            <svg height="16" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg" class="clearIcon" >
+                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                <path d="M0 0h24v24H0z" fill="none"/>
+            </svg> 
+        </span>
+        <input class="chip-input" [type]="type" name="chips" [(ngModel)]="chip" (keyup)="addOnEnter($event)" #inp (focus)="isFocused = true" (focusout)="isFocused = false">
+        <!--<button *ngIf="showAdd" (click)="add()">Add</button>-->
+    `,
+    styles: [`
+        :host {
+            display: block;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+        }
+
+        :host .chip {
+            height: 32px;
+            padding: 0 15px;
+            display: inline-block;
+            border-radius: 32px;
+            transition: all .4s cubic-bezier(.25, .8, .25, 1);
+            font-size: 13px;
+            line-height: 32px;
+            white-space: nowrap;
+            position: relative;
+            margin-right: 8px;
+            margin-bottom: 4px;
+            background-color: rgba(0, 0, 0, .12);
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        :host .chip svg {
+            position: relative;
+            top: 4px;
+            cursor: pointer;
+        }
+
+        :host .chip:hover {
+            background: rgba(0, 0, 0, .22)
+        }
+
+        :host .chip-input {
+            color: black;
+            height: 32px;
+            outline: none;
+            padding: 0;
+            display: inline-block;
+            border: none;
+            background: none;
+            transition: all .4s cubic-bezier(.25, .8, .25, 1);
+            transition-property: font-size;
+            color: rgba(0, 0, 0, .54);
+            font-family: inherit;
+            line-height: 32px;
+            width: 128px;
+            font-size: 16px;
+        }
+
+
+        /*button {
+            position: absolute;
+            background: #bcc987;
+            right: 0;
+            border: none;
+            top: 0;
+            height: 100%;
+            color: #212529;
+            cursor: pointer;
+        }*/
+    `]
 })
 export class ChipsComponent implements ControlValueAccessor {
     @Input() selected: any = [];
