@@ -7,7 +7,7 @@ A chip library for Angular 2
 npm install --save @jaspero/ng2-chips
 ```
 
-A demo can be found [here.](http://open-source.jaspero.co/ng/ng-chips)
+A demo can be found [here.](https://jaspero.co/resources/projects/ng-chips)
 
 ## Setup
 Import `JasperoChipsModule` in your `@NgModule`:
