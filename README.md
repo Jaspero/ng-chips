@@ -1,13 +1,18 @@
-[![Build Status](https://travis-ci.org/Jaspero/ng2-chips.svg?branch=master)](https://travis-ci.org/jaspero/ng2-chips)
-[![NPM Version](https://img.shields.io/npm/v/@jaspero/ng2-chips.svg)](https://www.npmjs.com/package/@jaspero/ng2-chips)
-# NG2 Chips
-A chip library for Angular 2
+[![Build Status](https://travis-ci.org/Jaspero/ng-chips.svg?branch=master)](https://travis-ci.org/jaspero/ng-chips)
+[![NPM Version](https://img.shields.io/npm/v/@jaspero/ng-chips.svg)](https://www.npmjs.com/package/@jaspero/ng-chips)
 
-```
-npm install --save @jaspero/ng2-chips
-```
+# NG Chips
+A chip library for Angular
 
-A demo can be found [here.](https://jaspero.co/resources/projects/ng-chips)
+A demo can be found [here](https://jaspero.co/resources/projects/ng-confirmations)
+
+## Installation
+
+To install this library, run:
+
+```bash
+$ npm install --save @jaspero/ng-chips
+```
 
 ## Setup
 Import `JasperoChipsModule` in your `@NgModule`:
@@ -23,7 +28,14 @@ Import `JasperoChipsModule` in your `@NgModule`:
 export class AppModule {}
 ```
 
-## How To Use 
+Then create the component in a root component (you can create it anywhere but you can only use it in that component on any lower ones).
+
+```html
+<jaspero-confirmations [defaultSettings]="options"></jaspero-confirmations>
+```
+
+
+## How To Use
 To use the library simply add the component in your templates:
 ```typescript
 <jaspero-chips></jaspero-chips>
@@ -33,11 +45,28 @@ To use the library simply add the component in your templates:
 
 You can pass the following inputs to the component:
 
-|Name|Type|Description|Default|
+    |Name|Type|Description|Default|
 |---|---|---|---|
 |type|Type of the chip input.|text,number,password,date|text|
 |duplicates|Should adding duplicates be allowed.|boolean|false|
 
 This component also support Angular 2 template driven and reactive forms.
 
- 
+
+## Development
+
+To generate all `*.js`, `*.d.ts` and `*.metadata.json` files:
+
+```bash
+$ npm run build
+```
+
+To lint all `*.ts` files:
+
+```bash
+$ npm run lint
+```
+
+## License
+
+MIT © [Jaspero co.](mailto:info@jaspero.co)

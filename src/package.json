@@ -1,0 +1,31 @@
+{
+  "name": "@jaspero/ng-chips",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jaspero/ng-chips"
+  },
+  "author": {
+    "name": "Jaspero co.",
+    "email": "info@jaspero.co"
+  },
+  "keywords": [
+    "angular",
+    "alerts"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Jaspero/ng-chips/issues"
+  },
+  "main": "ng-chips.umd.js",
+  "module": "ng-chips.js",
+  "jsnext:main": "ng-chips.js",
+  "typings": "ng-chips.d.ts",
+  "peerDependencies": {
+    "@angular/common": "^5.0.0",
+    "@angular/core": "^5.0.0",
+    "@angular/forms": "^5.0.0",
+    "rxjs": "^5.1.0",
+    "zone.js": "^0.8.4"
+  }
+}
