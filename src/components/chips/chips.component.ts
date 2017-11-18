@@ -8,7 +8,7 @@ import {
   HostListener,
   Input,
   Output,
-  ViewChild
+  ViewChild, ViewEncapsulation
 } from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
@@ -17,6 +17,7 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
   templateUrl: './chips.component.html',
   styleUrls: ['./chips.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
   providers: [{
     provide: NG_VALUE_ACCESSOR,
     useExisting: forwardRef(() => ChipsComponent),
