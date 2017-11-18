@@ -45,7 +45,7 @@ To use the library simply add the component in your templates:
 
 You can pass the following inputs to the component:
 
-    |Name|Type|Description|Default|
+|Name|Type|Description|Default|
 |---|---|---|---|
 |type|Type of the chip input.|text,number,password,date|text|
 |duplicates|Should adding duplicates be allowed.|boolean|false|

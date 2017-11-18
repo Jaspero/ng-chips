@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   EventEmitter,
@@ -15,6 +16,7 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
   selector: 'jaspero-chips',
   templateUrl: './chips.component.html',
   styleUrls: ['./chips.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [{
     provide: NG_VALUE_ACCESSOR,
     useExisting: forwardRef(() => ChipsComponent),
@@ -22,28 +24,35 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
   }]
 })
 export class ChipsComponent implements ControlValueAccessor {
+
+  @HostBinding('class.active') isFocused = false;
+
+  @ViewChild('inp') inpEl: ElementRef;
+
   @Input() selected: any = [];
-  @Output() selectedChange: EventEmitter<any> = new EventEmitter();
+  @Output() selectedChange = new EventEmitter();
+
   @Input() type = 'text';
   @Input() showAdd = true;
   @Input() duplicates = false;
 
-  @ViewChild('inp') inpEl: ElementRef;
-
-  @HostBinding('class.active') isFocused = false;
-
-  chip: any;
+  chip: any = '';
 
   @HostListener('click') addFocus() {
     this.inpEl.nativeElement.focus();
   }
 
   addOnEnter(event: any) {
-    if (event.keyCode !== 13) {
-      return;
-    }
 
-    this.add();
+    console.log(1, this.chip);
+
+    if (event.keyCode === 13) {
+      this.add();
+    } else if (event.keyCode === 8 && this.selected.length && this.chip === '') {
+      this.remove(this.selected.length - 1);
+    } else {
+      this.chip = event.target.value;
+    }
   }
 
   add() {
@@ -52,7 +61,7 @@ export class ChipsComponent implements ControlValueAccessor {
     }
 
     this.selected.push(this.chip);
-    this.chip = null;
+    this.chip = '';
     this.propagateChange(this.selected);
     this.selectedChange.emit(this.selected);
   }
