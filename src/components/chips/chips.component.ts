@@ -44,9 +44,6 @@ export class ChipsComponent implements ControlValueAccessor {
   }
 
   addOnEnter(event: any) {
-
-    console.log(1, this.chip);
-
     if (event.keyCode === 13) {
       this.add();
     } else if (event.keyCode === 8 && this.selected.length && this.chip === '') {
