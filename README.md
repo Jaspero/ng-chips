@@ -28,13 +28,6 @@ Import `JasperoChipsModule` in your `@NgModule`:
 export class AppModule {}
 ```
 
-Then create the component in a root component (you can create it anywhere but you can only use it in that component on any lower ones).
-
-```html
-<jaspero-confirmations [defaultSettings]="options"></jaspero-confirmations>
-```
-
-
 ## How To Use
 To use the library simply add the component in your templates:
 ```typescript
