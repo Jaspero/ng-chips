@@ -8,7 +8,8 @@ import {
   HostListener,
   Input,
   Output,
-  ViewChild, ViewEncapsulation
+  ViewChild,
+  ViewEncapsulation
 } from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
@@ -70,8 +71,8 @@ export class ChipsComponent implements ControlValueAccessor {
     this.selectedChange.emit(this.selected);
   }
 
-  /*
-   Form Control Value Accessor
+  /**
+   * Form Control Value Accessor
    */
   writeValue(value: any) {
     if (value !== undefined) {
